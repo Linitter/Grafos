@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizador de Grafos - Algoritmo de Dijkstra</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- CABEÇALHO DA APLICAÇÃO -->
+    <div class="header">
+      <h1>Algoritmo de Dijkstra - Visualizador</h1>
+      <p>Ferramenta educacional para demonstrar o algoritmo de menor caminho</p>
+    </div>
+
+    <!-- PAINEL DE CONTROLES -->
+    <div class="controls">
+      <!-- CONTROLES BÁSICOS -->
+      <div class="control-group">
+        <h3>Controles</h3>
+        <button id="addNodeBtn" class="btn primary">Adicionar Nó</button>
+        <button id="addEdgeBtn" class="btn secondary">Adicionar Aresta</button>
+        <button id="clearBtn" class="btn danger">Limpar Grafo</button>
+      </div>
+
+      <!-- CONTROLES DO ALGORITMO -->
+      <div class="control-group">
+        <h3>Dijkstra</h3>
+
+        <div class="input-group">
+          <label for="startNode">Nó Origem:</label>
+          <select id="startNode">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="endNode">Nó Destino:</label>
+          <select id="endNode">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+
+        <button id="runDijkstraBtn" class="btn success">
+          Executar Dijkstra
+        </button>
+        <button id="resetPathBtn" class="btn secondary">Limpar Caminho</button>
+      </div>
+
+      <!-- ÁREA DE RESULTADOS -->
+      <div class="control-group">
+        <h3>Resultado</h3>
+        <div id="result">
+          <p>Selecione origem e destino para calcular o menor caminho</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÁREA DE VISUALIZAÇÃO -->
+    <div class="canvas-container">
+      <!-- CANVAS PRINCIPAL -->
+      <canvas id="graphCanvas" width="800" height="600"></canvas>
+
+      <!-- INSTRUÇÕES DE USO -->
+      <div class="instructions">
+        <h4>Instruções:</h4>
+        <ul>
+          <li><strong>Modo Nó:</strong> Clique no canvas para adicionar nós</li>
+          <li>
+            <strong>Modo Aresta:</strong> Clique em dois nós para conectá-los
+          </li>
+          <li>
+            <strong>Arrastar:</strong> Clique e arraste os nós para
+            reposicioná-los
+          </li>
+          <li>
+            <strong>Remover:</strong> Clique direito em um nó ou aresta para
+            remover
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MODAL PARA ENTRADA DE PESO -->
+    <div id="weightModal" class="modal">
+      <div class="modal-content">
+        <h3>Peso da Aresta</h3>
+
+        <input
+          type="number"
+          id="weightInput"
+          min="1"
+          value="1"
+          placeholder="Digite o peso"
+        />
+
+        <div class="modal-buttons">
+          <button id="confirmWeight" class="btn primary">Confirmar</button>
+          <button id="cancelWeight" class="btn secondary">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script src="graph.js"></script>
+    <!-- Estruturas de dados -->
+    <script src="dijkstra.js"></script>
+    <!-- Algoritmo de Dijkstra -->
+    <script src="app.js"></script>
+    <!-- Aplicação principal -->
+  </body>
+</html>
